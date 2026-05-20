@@ -1,0 +1,55 @@
+Note: Unnecessary use of -X or --request, POST is already inferred.
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+
+  0      0   0      0   0      0      0      0                              0* Host o2k1mb7pul.execute-api.us-east-1.amazonaws.com:443 was resolved.
+* IPv6: 64:ff9b::23ab:f75e, 64:ff9b::641d:510d, 64:ff9b::3401:864
+* IPv4: 32.193.251.108, 32.192.58.125
+*   Trying [64:ff9b::23ab:f75e]:443...
+*   Trying 32.193.251.108:443...
+* schannel: disabled automatic use of client certificate
+* ALPN: curl offers http/1.1
+* ALPN: server accepted http/1.1
+* Established connection to o2k1mb7pul.execute-api.us-east-1.amazonaws.com (64:ff9b::23ab:f75e port 443) from 2409:40f0:4425:c9fb:7563:a5a0:f5a2:b01e port 62848 
+* using HTTP/1.x
+> POST /upload HTTP/1.1
+
+> Host: o2k1mb7pul.execute-api.us-east-1.amazonaws.com
+
+> User-Agent: curl/8.18.0
+
+> Accept: */*
+
+> Content-Type: application/json
+
+> Content-Length: 2
+
+> 
+
+} [2 bytes data]
+* upload completely sent off: 2 bytes
+* schannel: remote party requests renegotiation
+* schannel: renegotiating SSL/TLS connection
+* schannel: SSL/TLS connection renegotiated
+< HTTP/1.1 404 Not Found
+
+< Date: Tue, 07 Apr 2026 15:14:53 GMT
+
+< Content-Type: application/json
+
+< Content-Length: 23
+
+< Connection: keep-alive
+
+< apigw-requestid: bdHZLihKoAMEPoA=
+
+< 
+
+{ [23 bytes data]
+
+100     25 100     23 100      2     22      1   00:02   00:01   00:01     24
+100     25 100     23 100      2     22      1   00:02   00:01   00:01     24
+100     25 100     23 100      2     22      1   00:02   00:01   00:01     24
+100     25 100     23 100      2     22      1   00:02   00:01   00:01     24
+* Connection #0 to host o2k1mb7pul.execute-api.us-east-1.amazonaws.com:443 left intact
+{"message":"Not Found"}
