@@ -1,94 +1,47 @@
-# Welcome to your Lovable project
+# Serverless Image Processor UI
 
-## Project info
+A modern React frontend for uploading and processing images via an AWS serverless backend (API Gateway, Lambda, and S3). Built with Vite, TypeScript, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Features
 
-## How can I edit this code?
+- **Multipart Image Uploads**: Handles image uploads to AWS S3 via an API Gateway and Lambda backend.
+- **Serverless Architecture**: Seamlessly interacts with AWS serverless endpoints for scalable image processing.
+- **Modern Tech Stack**: Uses React, Vite, TypeScript, and Tailwind CSS for a fast, responsive user interface.
+- **UI Components**: Built using Radix UI and Shadcn UI components.
 
-There are several ways of editing your application.
+## Getting Started
 
-**Use Lovable**
+### Prerequisites
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- Node.js & npm installed
 
-Changes made via Lovable will be committed automatically to this repo.
+### Installation
 
-**Use your preferred IDE**
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yanaparthiharshavardhan/serverless-image-processor.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd "serverless image processing system/Serverless image processing system/Serverless image processing system"
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Running the App
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Start the development server with auto-reloading:
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Configuration
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Make sure your backend API Gateway URL and S3 Bucket are properly configured in your environment or settings so the app can communicate with your serverless backend.
 
-**Use GitHub Codespaces**
+## Architecture
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## Image upload architecture
-
-The React frontend does *not* upload files directly to S3. Instead it calls an
-API Gateway endpoint (`POST /upload`) which is backed by a Python Lambda. The
-Lambda is responsible for accepting the file (as `multipart/form-data`),
-writing it to the configured S3 bucket, and returning a JSON object with a
-`key` value. The frontend stores the key and later uses the `/process` endpoint
-to trigger any additional image processing.
-
-Make sure the bucket and API Gateway URL are set via the settings UI (saved in
-`localStorage` by `getApiConfig()`); for example:
-
-```js
-{ apiGatewayUrl: "https://…execute-api.us-east-1.amazonaws.com/dev", 
-  s3BucketName: "my-bucket", 
-  awsRegion: "us-east-1" }
-```
-
-The original presigned-URL flow remains in the codebase for reference, but the
-`uploadImage` helper is the active path.
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+The React frontend does not upload files directly to S3. Instead, it calls an API Gateway endpoint (`POST /upload`) which is backed by a Python Lambda. The Lambda is responsible for accepting the file (as `multipart/form-data`), writing it to the configured S3 bucket, and returning a JSON object with a `key` value. The frontend stores the key and later uses the `/process` endpoint to trigger any additional image processing.
